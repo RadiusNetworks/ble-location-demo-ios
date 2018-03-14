@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +14,83 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Location" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cn-sQ-d3A">
+                                <rect key="frame" x="16" y="20" width="343" height="30"/>
+                                <state key="normal" title="Start UUID Region Monitoring"/>
+                                <connections>
+                                    <action selector="startStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QZW-01-5uR"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FEe-UT-JHe">
+                                <rect key="frame" x="177" y="58" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIa-Ii-8gr">
+                                <rect key="frame" x="16" y="127" width="343" height="30"/>
+                                <state key="normal" title="Launch App Settings"/>
+                                <connections>
+                                    <action selector="launchSettingsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eck-lp-020"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Log goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tta-lt-8gM">
+                                <rect key="frame" x="16" y="333.5" width="343" height="313.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiA-VW-iIe">
+                                <rect key="frame" x="16" y="165" width="343" height="30"/>
+                                <state key="normal" title="Start Broadcasting As Beacon"/>
+                                <connections>
+                                    <action selector="startStopBroadcastingAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aNH-4p-tKk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVb-cT-eeZ">
+                                <rect key="frame" x="16" y="89" width="343" height="30"/>
+                                <state key="normal" title="Start Ranging Beacons"/>
+                                <connections>
+                                    <action selector="startStopRangingAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eHa-3v-OgM"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0cn-sQ-d3A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CXD-gI-GZo"/>
+                            <constraint firstItem="0cn-sQ-d3A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E1d-4u-mCA"/>
+                            <constraint firstItem="UIa-Ii-8gr" firstAttribute="top" secondItem="jVb-cT-eeZ" secondAttribute="bottom" constant="8" id="MuP-YL-UWG"/>
+                            <constraint firstItem="jVb-cT-eeZ" firstAttribute="top" secondItem="FEe-UT-JHe" secondAttribute="bottom" constant="11" id="NnX-RI-n0T"/>
+                            <constraint firstItem="eiA-VW-iIe" firstAttribute="trailing" secondItem="UIa-Ii-8gr" secondAttribute="trailing" id="Tfr-Bo-gXQ"/>
+                            <constraint firstItem="jVb-cT-eeZ" firstAttribute="leading" secondItem="0cn-sQ-d3A" secondAttribute="leading" id="V4H-r7-M5q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tta-lt-8gM" secondAttribute="bottom" constant="20" id="Vh3-sA-VA1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0cn-sQ-d3A" secondAttribute="trailing" constant="16" id="X9b-d7-9H4"/>
+                            <constraint firstItem="tta-lt-8gM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XAH-Bv-ohV"/>
+                            <constraint firstItem="jVb-cT-eeZ" firstAttribute="trailing" secondItem="0cn-sQ-d3A" secondAttribute="trailing" id="Xnt-bW-Naf"/>
+                            <constraint firstItem="UIa-Ii-8gr" firstAttribute="leading" secondItem="0cn-sQ-d3A" secondAttribute="leading" id="ah4-tp-S07"/>
+                            <constraint firstItem="eiA-VW-iIe" firstAttribute="leading" secondItem="UIa-Ii-8gr" secondAttribute="leading" id="b1W-Rl-EDc"/>
+                            <constraint firstItem="eiA-VW-iIe" firstAttribute="top" secondItem="UIa-Ii-8gr" secondAttribute="bottom" constant="8" id="beU-QX-cBe"/>
+                            <constraint firstItem="UIa-Ii-8gr" firstAttribute="trailing" secondItem="0cn-sQ-d3A" secondAttribute="trailing" id="cmD-Q6-TNi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tta-lt-8gM" secondAttribute="trailing" constant="16" id="d2Z-JX-Jpf"/>
+                            <constraint firstItem="tta-lt-8gM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nc9-ep-oBH"/>
+                            <constraint firstItem="FEe-UT-JHe" firstAttribute="top" secondItem="0cn-sQ-d3A" secondAttribute="bottom" constant="8" id="tja-Gn-q2X"/>
+                            <constraint firstItem="FEe-UT-JHe" firstAttribute="centerX" secondItem="0cn-sQ-d3A" secondAttribute="centerX" id="zfM-xZ-nfQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="FEe-UT-JHe" id="AgY-6c-65i"/>
+                        <outlet property="logTextView" destination="tta-lt-8gM" id="GCH-C0-HzZ"/>
+                        <outlet property="startStopBroadcastingButton" destination="eiA-VW-iIe" id="5ZB-5k-7js"/>
+                        <outlet property="startStopButton" destination="0cn-sQ-d3A" id="Xj9-K5-c9J"/>
+                        <outlet property="startStopRangingButton" destination="jVb-cT-eeZ" id="ni2-ZH-cWe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-116" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

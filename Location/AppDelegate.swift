@@ -3,7 +3,7 @@
 //  Location
 //
 //  Created by Michael Harper on 1/26/18.
-//  Copyright © 2018 Standalone Code LLC. All rights reserved.
+//  Copyright © 2018 Radius Networks, Inc. All rights reserved.
 //
 
 import UIKit
